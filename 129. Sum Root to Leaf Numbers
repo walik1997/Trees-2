@@ -1,0 +1,22 @@
+# Time O(n)
+# Space O(H)
+# Definition for a binary tree node.
+class TreeNode:
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
+class Solution:
+    def sumNumbers(self, root: [TreeNode]) -> int:
+           self.result=0
+           self.helper(root,0)
+           return self.result
+    def helper(self,root,cur):
+        if root is None:
+            return
+        cur=cur*10+root.val
+        if root.left == None and root.right ==None:
+            self.result+=cur
+
+        self.helper(root.left,cur)
+        self.helper(root.right,cur)
